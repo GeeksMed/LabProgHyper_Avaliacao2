@@ -13,16 +13,40 @@
                 <img id="logo" src="{{ url_for('static', filename='img/logo-white.svg') }}" alt="Logo Buscapé" title="Logo Buscapé">
             </a>
             <button id="botao_menu">
-                <img id="menu_carrinho" src="{{ url_for('static', filename='img/menu.svg') }}">
+                <img id="menu_carrinho" src="{{ url_for('static', filename='img/menu.png') }}" onclick="">
+                <div id="dropdown-content">
+                    {% for item_carrinho in carrinho_list %}
+                        <div>
+                            <div class="imagem_carrinho">
+                                <img src={{ item_carrinho.images[0] }}>
+                            </div>
+                            <div class="inf_carrinho">
+
+                            </div>
+                            <form class="remover_carrinho" action="{{ url_for('remover', id=item_carrinho.id)}}" method="get" enctype="application/x-www-form-urlencoded">
+                                <input title="Remover" value="x" type="submit">
+                            </form>
+                        </div>
+
+                    {% endfor %}
+                    <div id="total">
+                        <div>
+
+                        </div>
+                        <div class="separador">
+                            <hr>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
             </button>
         </div>
+
     </div>
     <div id="produtos">
         {% for produto in produtos_list %}
-            <!--<div>{{produto.id}}</div>-->
-            <div>{{produto.name}}</div>
-            <div>{{produto.images[0]}}</div>
-            <div>{{produto.price}}</div>
             <div class="card">
                 <div class="imagens">
                     <div class="imagens_coluna">
@@ -37,12 +61,48 @@
                             <img id="img_selected" src={{ produto.images[0] }}>
                         </button>
                     </div>
-
+                </div>
+                <div class="info">
+                    <div class="nome_prod">
+                        <p>{{ produto.name }}</p>
+                    </div>
+                    <div class="separador">
+                        <hr>
+                    </div>
+                    <div class="preco_promo">
+                        <div class="promo">
+                            <div>
+                                <img class="img_melhor_preco" src="{{ url_for('static', filename='img/melhorpreco.png') }}">
+                            </div>
+                        </div>
+                        <div class="preco_button">
+                            <div class="preco">
+                                <div class="preco_parc">{{ "%.i" % produto.price.installments }}x R$ <span class="parc">{{ "%.2f" % produto.price.installmentValue }}</span></div>
+                                <div class="preco_vista">ou <span class="vista">R$ {{ "%.2f" % produto.price.value }}</span> à vista</div>
+                            </div>
+                            <form class="b_add" action="{{ url_for('inserir', id=produto.id)}}" method="get" enctype="application/x-www-form-urlencoded">
+                                <input title="Adicionar" value="Adicionar ao carrinho >" type="submit">
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         {%endfor%}
     </div>
 
 <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+<script type="text/javascript">
+var btn = document.querySelector("#botao_menu");
+btn.addEventListener("click", function() {
+    var div = document.querySelector("#dropdown-content");
+
+  if(div.style.display === "none") {
+        div.style.display = "block";
+    } else {
+      div.style.display = "none";
+  }
+
+});
+</script>
 </body>
 </html>

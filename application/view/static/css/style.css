@@ -1,5 +1,6 @@
 body{
     margin: 0px;
+    background: #ccc;
 }
 
 #amarelo{
@@ -24,10 +25,23 @@ body{
     background-color: transparent;
     border: 1px solid transparent;
     border-radius: .25rem;
+
+    display: inline-block;
+}
+
+#dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    margin: 2% -95%;
+    width: 95.8%;
 }
 
 #menu_carrinho{
-    filter: invert(1);
     display: inline-block;
     width: 1.5em;
     height: 1.5em;
@@ -40,8 +54,11 @@ body{
 .card{
     display: flex;
     flex-direction: row;
-    height: 200px;
-    margin: 1%;
+    align-items: center;
+    height: 30%;
+    margin: 1.5% 1%;
+    border-radius: 5px;
+    background: white;
 }
 
 .imagens{
@@ -49,17 +66,20 @@ body{
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
+    width: 40%;
 }
 
 .imagens_coluna{
     display: flex;
     flex-direction: column;
-    width: 8%;
+    width: 70%;
+    align-items: center;
+    margin: 5%;
+    justify-content: space-between;
 }
 
 .imagens_coluna button{
     width: 70%;
-    height: 60px;
     margin: 1%;
     background: transparent;
     border: transparent;
@@ -74,9 +94,9 @@ body{
 
 .imagem_selecionada{
     display: flex;
-    width: 18%;
+    width: 100%;
     height: 95%;
-    margin: .5%;
+    margin: 0 10% 0 10%;
     align-content: center;
     justify-content: center;
 }
@@ -98,3 +118,76 @@ body{
     justify-content: center;
     width: 80%;
 }
+
+.info{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 60%;
+    height: 180px;
+    margin: 10px 5px;
+}
+
+.nome_prod p{
+    font-size: 1.5rem;
+    font-family: -webkit-pictograph;
+    padding: 0;
+    margin: 0;
+}
+
+.preco_promo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.preco_button{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 100%;
+    color: #4CAF50; /* Green */
+    font-size: 1.5rem;
+    font-family: system-ui;
+}
+
+.parc{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.preco_vista{
+    font-size: 1rem;
+    font-family: system-ui;
+}
+
+.vista{
+    color: #4CAF50; /* Green */
+    font-weight: bolder;
+}
+
+.b_add{
+    margin: 0 3%;
+}
+
+.b_add input{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 2% 15px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.b_add button span{
+    font-weight: bolder;
+    font-size: xx-large;
+    margin-left: 5%;
+}
+
