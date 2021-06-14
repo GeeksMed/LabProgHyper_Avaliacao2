@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Compare o preço no Buscapé e encontre a melhor oferta!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='ico/favicon.ico') }}">
+</head>
+<body>
+    <div id='header'>
+        <div id="amarelo">
+            <a href="{{ url_for('home') }}">
+                <img id="logo" src="{{ url_for('static', filename='img/logo-white.svg') }}" alt="Logo Buscapé" title="Logo Buscapé">
+            </a>
+            <button id="botao_menu">
+                <img id="menu_carrinho" src="{{ url_for('static', filename='img/menu.svg') }}">
+            </button>
+        </div>
+    </div>
+    <div id="produtos">
+        {% for produto in produtos_list %}
+            <!--<div>{{produto.id}}</div>-->
+            <div>{{produto.name}}</div>
+            <div>{{produto.images[0]}}</div>
+            <div>{{produto.price}}</div>
+            <div class="card">
+                <div class="imagens">
+                    <div class="imagens_coluna">
+                        {% for img in produto.images %}
+                            <button onclick="mostraImagem('{{ img }}')">
+                                <img src={{ img }} class="imagens_micro">
+                            </button>
+                        {% endfor %}
+                    </div>
+                    <div class="imagem_selecionada">
+                        <button onclick="">
+                            <img id="img_selected" src={{ produto.images[0] }}>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        {%endfor%}
+    </div>
+
+<script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+</body>
+</html>
