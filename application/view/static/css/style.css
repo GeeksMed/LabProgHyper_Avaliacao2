@@ -32,13 +32,13 @@ body{
 #dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background: #dcab00;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     z-index: 1;
     margin: 2% -95%;
-    width: 95.8%;
+    width: 94.8%;
 }
 
 #menu_carrinho{
@@ -191,3 +191,68 @@ body{
     margin-left: 5%;
 }
 
+.card_carrinho{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.preco_carrinho{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+    font-weight: bolder;
+    font-size: smaller;
+}
+
+.imagem_carrinho{
+    width: 10%;
+}
+
+.imagem_carrinho img{
+    width: 100%;
+}
+
+.info_carrinho{
+    padding: 0 1%;
+    color: black;
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nome_prod_carrinho{
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nome_prod_carrinho p{
+    margin: 0;
+    margin-bottom: revert
+}
+
+.remover_carrinho input{
+    background: transparent;
+    border: transparent;
+    font-size: larger;
+    font-weight: 900;
+}
+
+#total{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    justify-content: center;
+    color: black;
+    font-size: small;
+}
+
+#subtotal{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-content: flex-end;
+}

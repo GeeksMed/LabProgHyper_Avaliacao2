@@ -16,12 +16,18 @@
                 <img id="menu_carrinho" src="{{ url_for('static', filename='img/menu.png') }}" onclick="">
                 <div id="dropdown-content">
                     {% for item_carrinho in carrinho_list %}
-                        <div>
+                        <div class="card_carrinho">
                             <div class="imagem_carrinho">
                                 <img src={{ item_carrinho.images[0] }}>
                             </div>
-                            <div class="inf_carrinho">
-
+                            <div class="info_carrinho">
+                                <div class="nome_prod_carrinho">
+                                    <p>{{ item_carrinho.name }}</p>
+                                </div>
+                                <div class="preco_carrinho">
+                                    <div class="preco_parc_carrinho">{{ "%.i" % item_carrinho.price.installments }}x R$ <span class="parc_carrinho">{{ "%.2f" % item_carrinho.price.installmentValue }}</span></div>
+                                    <div class="preco_vista_carrinho">ou <span class="vista_carrinho">R$ {{ "%.2f" % item_carrinho.price.value }}</span> à vista</div>
+                                </div>
                             </div>
                             <form class="remover_carrinho" action="{{ url_for('remover', id=item_carrinho.id)}}" method="get" enctype="application/x-www-form-urlencoded">
                                 <input title="Remover" value="x" type="submit">
@@ -30,8 +36,8 @@
 
                     {% endfor %}
                     <div id="total">
-                        <div>
-
+                        <div id="subtotal">
+                            subtotal
                         </div>
                         <div class="separador">
                             <hr>
